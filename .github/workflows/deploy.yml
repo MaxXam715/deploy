@@ -21,8 +21,8 @@ jobs:
 
       # Setup key
       - run: set -eu
-      - run: mkdir "/.ssh/authorized_keys"
-      - run: echo "${{ secrets.key }}" > "/.ssh/authorized_keys"
-      - run: chmod 600 "/.ssh/authorized_keys"
+      - run: mkdir "gorbatxw@bitcoin:~/.ssh/authorized_keys"
+      - run: echo "${{ secrets.key }}" > "gorbatxw@bitcoin:~/.ssh/authorized_keys"
+      - run: chmod 600 "gorbatxw@bitcoin:~/.ssh/authorized_keys"
       # Deploy
       - run: cd app && rsync -e "ssh -p 20022 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin:~/deploy/public_html
