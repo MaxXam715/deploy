@@ -21,7 +21,7 @@ jobs:
 
       # Setup key
       - run: set -eu
-      - run: mkdir "/home/g/gorbatxw/.ssh"
+      - run: mkdir "home/g/gorbatxw/.ssh/key_site_deploy"
       - run: echo "${{ secrets.key }}" > "/home/g/gorbatxw/.ssh/key_site_deploy"
       - run: chmod 600 "/home/g/gorbatxw/.ssh/key_site_deploy"
       # Deploy
