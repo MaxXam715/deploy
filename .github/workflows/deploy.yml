@@ -19,12 +19,11 @@ jobs:
         with:
           node-version: 16
 
-
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
       - run: echo "$" > "$HOME/.ssh/key_site_deploy"
       - run: chmod 600 "$HOME/.ssh/key_site_deploy"
       # Deploy
-      - run: rsync -e "ssh -p $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/
-#      - run: rsync -azPq -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --archive --compress --delete . gorbatxw@predev.ru:/predev
+#      - run: rsync -e "ssh -p $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/
+      - run: rsync -azPq -e "ssh -o $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/predev
