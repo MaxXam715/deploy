@@ -26,4 +26,4 @@ jobs:
       - run: chmod 600 "$HOME/.ssh/key_site_deploy"
       # Deploy
 #      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin:~/deploy/public_html
-      - run: rsync -azPq -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete . gorbatxw@predev.ru:/home/g/gorbatxw/deploy/public_html
+      - run: rsync -azPq -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete . gorbatxw@predev.ru:/public_html
