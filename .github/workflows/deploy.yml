@@ -25,6 +25,5 @@ jobs:
       - run: echo "$" > "$HOME/.ssh/key_site_deploy"
       - run: chmod 600 "$HOME/.ssh/key_site_deploy"
       # Deploy
-#      - run: rsync -azPq -e "ssh -o $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/public_html
-      - run: rsync --archive --compress --progress . gorbatxw@predev.ru:/public_html
-#      - run: rsync -azPq -e "ssh -o $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --delete . gorbatxw@predev.ru:/public_html
+#      - run: rsync -e "ssh -p $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/public_html
+      - run: rsync -azPq -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete . gorbatxw@predev.ru:/deploy/public_html
