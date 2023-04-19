@@ -25,4 +25,4 @@ jobs:
       - run: echo "$" > "$HOME/.ssh/key_site_deploy"
       - run: chmod 600 "$HOME/.ssh/key_site_deploy"
       # Deploy
-      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin:~/home/g/gorbatxw/deploy/public_html
+      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin:/deploy/public_html
