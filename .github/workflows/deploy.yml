@@ -1,7 +1,7 @@
 name: Deploy
 
 runs:
-  using: 'node16'
+  using: node12
 
 on:
   push:
