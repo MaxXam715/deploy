@@ -8,10 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [ 16 ]
+        node-version: 16
 
     steps:
       - uses: actions/checkout@v3
@@ -19,12 +18,11 @@ jobs:
         with:
           node-version: 16
 
-
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
-      - run: echo "$" > "$HOME/.ssh/key_site_deploy"
-      - run: chmod 600 "$HOME/.ssh/key_site_deploy"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
+
       # Deploy
-#      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key_site_deploy -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin:~/deploy/public_html
-      - run: rsync -azPq -e "ssh -vT git@github.com -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin.beget.com:/deploy/public_html
+      - run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@bitcoin.beget.com:/deploy/public_html
