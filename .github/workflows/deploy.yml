@@ -28,4 +28,4 @@ jobs:
 
 
       # Deploy
-      - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@gorbatxw.beget.tech:/home/g/gorbatxw/deploy/public_html
+      - run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@gorbatxw.beget.tech:/home/g/gorbatxw/deploy/public_html
