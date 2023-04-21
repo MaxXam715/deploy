@@ -1,6 +1,4 @@
-/.idea
-/.github
-/.gita
+
 .idea
-.github
-.gita
+#.github
+.git
