@@ -1,26 +1,30 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch
+
+env:
+  SERVER_HOST: gorbatxw.beget.tech
+  SERVER_USER: gorbatxw
+  SERVER_PATH: /home/g/gorbatxw/deploy/public_html
 
 jobs:
+
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16]
+
     steps:
+      - uses: actions/checkout@v3
 
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      # Install ssh key
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2.3.1
         with:
-          node-version: ${{ matrix.node-version }}
-      # ------ Setup key ------
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
-      - run: chmod 600 "$HOME/.ssh/key"
+          key: "${{ secrets.MY_KEY }}"
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
 
-      - run: rsync -e "ssh -p 22 -i $HOME~/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@gorbatxw.beget.tech:/home/g/gorbatxw/deploy/public_html
+      - name: Generate auth hosts
+        run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      # Deploy
+      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
