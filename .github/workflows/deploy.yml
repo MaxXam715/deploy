@@ -38,5 +38,6 @@ jobs:
           command: |
             cd ${{ env.SERVER_PATH }};
             git checkout master;
-            git remote add pull -f origin master https://github.com/MaxXam715/deploy.git
+            git remote add;
+            git pull origin master;
             
