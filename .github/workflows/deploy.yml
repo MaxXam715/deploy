@@ -19,8 +19,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       # ------ Setup key ------
       - run: set -eu
-      - run: mkdir "~/.ssh/key"
-      - run: echo "${{ secrets.key }}" > "~/.ssh/key"
-      - run: chmod 600 "~/.ssh/key"
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
 
-      - run: rsync -e "ssh -i ~/.ssh/keykey -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/deploy/public_html
+      - run: rsync -e "ssh -i /.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@predev.ru:/deploy/public_html
