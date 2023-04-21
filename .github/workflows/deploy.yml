@@ -23,4 +23,4 @@ jobs:
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
 
-      - run: rsync -e "ssh -p 20022 -i ~/.ssh/authorized_keys -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@gorbatxw.beget.tech:/home/g/gorbatxw/deploy/public_html
+      - run: rsync -e "ssh -p 22 -i ~/.ssh/authorized_keys -o StrictHostKeyChecking=no" --archive --compress --delete . gorbatxw@gorbatxw.beget.tech:/home/g/gorbatxw/deploy/public_html
