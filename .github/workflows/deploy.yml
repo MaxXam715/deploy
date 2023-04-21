@@ -39,6 +39,7 @@ jobs:
           user: ${{env.SERVER_USER}}
           private_key: ${{secrets.KEY}}
           command: |
+            echo user.name
             cd ${{ env.SERVER_PATH }};
             git checkout master;
             
