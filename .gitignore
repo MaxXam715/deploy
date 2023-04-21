@@ -1,4 +1,5 @@
 .idea
 .github
 /.github
+/.github/*.yml
 .git
