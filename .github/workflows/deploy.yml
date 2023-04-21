@@ -24,7 +24,6 @@ jobs:
         with:
           key: ${{ secrets.KEY }}
           name: id_rsa # optional
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
       # ------ Setup key ------
       - run: set -eu
