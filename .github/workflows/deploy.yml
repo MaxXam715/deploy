@@ -8,7 +8,7 @@ on:
 env:
   SERVER_HOST: predev.ru
   SERVER_USER: gorbatxw
-  SERVER_PATH: /deploy/public_html
+  SERVER_PATH: /public_html
 
 jobs:
 
