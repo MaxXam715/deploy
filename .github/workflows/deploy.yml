@@ -42,8 +42,5 @@ jobs:
           command: |
             cd ${{ env.SERVER_PATH }};
             git checkout master;
-            
-            git init .
-            git remote add origin https://github.com/MaxXam715/deploy.git
             git pull origin master
 
