@@ -41,5 +41,6 @@ jobs:
           command: |
             cd ${{ env.SERVER_PATH }};
             git checkout master;
+            
             git pull origin master https://github.com/MaxXam715/deploy.git
             
