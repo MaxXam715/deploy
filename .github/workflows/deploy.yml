@@ -41,5 +41,5 @@ jobs:
           command: |
             cd ${{ env.SERVER_PATH }};
             git checkout master;
-            git remote add pull origin git@github.com:MaxXam715/deploy.git
+            git pull origin git@github.com:MaxXam715/deploy.git
             
