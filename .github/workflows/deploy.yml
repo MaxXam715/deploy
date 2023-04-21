@@ -38,5 +38,5 @@ jobs:
           command: |
             cd ${{ env.SERVER_PATH }};
             git checkout master;
-            hub remote set-url origin https://github.com/MaxXam715/deploy.git
+            git remote add origin https://github.com/MaxXam715/deploy.git
             
