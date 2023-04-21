@@ -1,6 +1,4 @@
-.idea
-.github
+/.git
 /.github
 /.github/workflows
 /.github/workflows/*.yml
-.git
