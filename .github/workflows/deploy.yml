@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  SERVER_HOST: gorbatxw.beget.tech
+  SERVER_HOST: predev.ru
   SERVER_USER: gorbatxw
   SERVER_PATH: /deploy/public_html
 
