@@ -41,5 +41,5 @@ jobs:
           command: |
             cd ${{ env.SERVER_PATH }};
             git checkout master;
-            git clone https://github.com/{username}/{repo}.git
+            git clone https://github.com/MaxXam715/deploy.git
             
