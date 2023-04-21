@@ -37,5 +37,6 @@ jobs:
           private_key: ${{secrets.KEY}}
           command: |
             cd ${{ env.SERVER_PATH }};
+            git config --global user.name "MaxXam715"
             git checkout master;
             git pull;
