@@ -30,6 +30,7 @@ jobs:
 
       # Deploy
       - name: Run command on remote server
+        uses: D3rHase/ssh-command-action@v0.2.2
         with:
           host: ${{env.SERVER_HOST}}
           user: ${{env.SERVER_USER}}
